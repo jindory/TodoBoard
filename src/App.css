@@ -1,3 +1,15 @@
+*{
+  box-sizing: border-box;
+}
+
+ul, li{
+  padding:0;
+}
+button{
+  cursor: pointer;
+  transition:  all .4s;
+}
+
 .App {
   text-align: center;
 }
@@ -36,3 +48,126 @@
     transform: rotate(360deg);
   }
 }
+
+.container{
+  min-height: 100vh;
+  background:#16151b
+}
+
+.w-base{
+  max-width: 600px;
+  width:100%;
+  margin:0 auto
+}
+
+.t-lst li{
+  display: flex;
+}
+
+
+.todo_edit_set, .editmode .def-mode, .ipt-normal, .editmode .ipt-label  {
+  display: none;
+}
+
+.editmode .todo_edit_set, .editmode .ipt-normal {
+  display: inline-block;
+}
+
+.item_buttons button{
+  width:35px;
+  height:35px;
+  justify-content: center;
+  align-items: center;
+  border:0;
+  background:#222229;
+  border-radius: 50px;
+  color:#7e7d85;
+  font-size:15px;
+  margin:0 3px;
+}
+
+.t-add{
+  width:100%;
+  padding:50px 0 5px;
+}
+
+.t-add+p{
+  margin-top:3px;
+  text-align: left;
+  padding-left:10px;
+  color:#f03450
+}
+
+.t-add h2{
+  color:#fff;
+  font-size:34px;
+  text-align: left;
+  margin-bottom:10px;
+}
+
+.t-add h2 small{
+  font-size:16px
+}
+
+.t-add input{
+  width:100%;
+  border:0;
+  background:none;
+  font-size:20px;
+  border:1px solid #242428;
+  padding:15px 15px 15px 20px; 
+  border-radius: 10px;
+  color:#fff
+}
+
+.t-add input:focus{
+  border-color:#3a74eb;
+  outline:0
+}
+
+.t-add>div{position:relative}
+.t-add .btn-add{position:absolute;top:50%;right:10px;transform: translate(0, -50%);border:0;width:40px;height:40px;font-size:21px;background:none;color:#999}
+
+.t-add>div:hover .btn-add{
+  color:#fff;
+}
+
+.t-lst li{
+  position:relative;
+  margin:8px 0
+}
+
+.ipt-label, .ipt-normal{
+  width:100%;
+  line-height: 40px;
+  padding:10px 80px 10px 50px;
+  background:#0e0d11;
+  border-radius: 10px;
+  text-align: left;
+  color:#ddd;
+  font-size:20px;
+  border:0;
+}
+
+.item_buttons button:hover, .todo_edit_set{
+  background:#fff !important;
+  color:#3a74eb !important
+}
+
+.editmode .ipt-normal{
+  background:#000;
+  border:1px solid #3a74eb
+}
+
+.ipt-normal{
+  color:#fff;
+  font-weight:bold
+}
+
+.buttonGroup{
+  position:absolute;
+  top:50%;
+  right:10px;
+  transform: translate(0, -50%);
+}
+
