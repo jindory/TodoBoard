@@ -1,5 +1,10 @@
-1챠챠 pm3:55
-https://user-images.githubusercontent.com/22221941/185054488-e1420cd6-7076-4007-8acd-208e277bccc3.mov
+1챠챠 
+
+
+
+https://user-images.githubusercontent.com/22221941/185054832-6a50a759-0391-43eb-951a-65894c61f86b.mov
+
+
 
 남은 작업 <br>
 - 수정 선택 시 인풋 박스 포커스
