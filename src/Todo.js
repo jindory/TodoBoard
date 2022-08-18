@@ -33,7 +33,7 @@ const Todo = () => {
 
     // 추가
     const handlerAddTodo = (e) => {
-        if(e.target.value === ''){
+        if(e.target.value === '' || e.target.value === ' '){
             return setInfoText('할일을 입력해주세요')
         } 
         e.preventDefault()
@@ -98,7 +98,7 @@ const Todo = () => {
                         onChange={handleChange}
                         onKeyPress={handleKeyPress}
                         placeholder="할일을 입력 후 Enter"/>
-                        <button className="btn-add" type="button" onClick={handlerAddTodo}><FontAwesomeIcon icon={faPlus}/></button>
+                        <button className="btn-add" type="button"><FontAwesomeIcon icon={faPlus}/></button>
                     </div>
                 </div>
                 <p>{infoText}</p>
