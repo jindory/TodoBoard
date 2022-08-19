@@ -1,16 +1,6 @@
 {
   "todos": [
     {
-      "content": "🍚 점심먹기ㅎ-ㅎ",
-      "completed": true,
-      "id": 15
-    },
-    {
-      "content": "🏋️‍♀️ 운동가기",
-      "completed": true,
-      "id": 20
-    },
-    {
       "content": "🐈 산책하기",
       "completed": false,
       "id": 21

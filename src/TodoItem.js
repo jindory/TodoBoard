@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare, faTrashCan, faCheck, faXmark } from "@fortawesome/free-solid-svg-icons";
 import styled from 'styled-components';
 
-const TodoItem = ({data, fetchData, handlerDelTodo, inputFocus, handlerEditTodo, handlerEditCls}) => {
+const TodoItem = ({data, fetchData, handlerDelTodo, iptRef, handlerEditTodo, handlerEditCls}) => {
     const [defTodoText, setDefTodoText] = useState(data.content);
     const ChangeTodo = (e) => {
         setDefTodoText(e.target.value)
@@ -12,7 +12,6 @@ const TodoItem = ({data, fetchData, handlerDelTodo, inputFocus, handlerEditTodo,
     const handlerUpdateTodo = (e) => {
         let item = e.target.closest('li');
         let id = item.dataset.id;
-        console.log(id);
         fetch(`http://localhost:3001/todos/${id}`, {
             method: 'PATCH',
             headers:{
@@ -45,21 +44,21 @@ const TodoItem = ({data, fetchData, handlerDelTodo, inputFocus, handlerEditTodo,
             <StyledLabel>
                 <StyledInput className={data.completed===true ? 'checked' : null} type="checkbox" onClick={toggleTodos}/>
             </StyledLabel>
-            <input className="ipt-normal" type="text" value={defTodoText} ref={inputFocus} onChange={ChangeTodo} />
+            <input className="ipt-normal" ref={iptRef} type="text" id={data.id} value={defTodoText} onChange={ChangeTodo}/>
             <label className="ipt-label">{defTodoText}</label>
             <div className="buttonGroup">
-                <div class={`item_buttons content_buttons`}>
-                    <button class="todo_edit_button def-mode" onClick={handlerEditTodo}>
+                <div className={`item_buttons content_buttons`}>
+                    <button className="todo_edit_button def-mode" onClick={handlerEditTodo}>
                         <i><FontAwesomeIcon icon={faPenToSquare}/> </i>
                     </button>
-                    <button class="todo_remove_button def-mode" onClick={handlerDelTodo}>
+                    <button className="todo_remove_button def-mode" onClick={handlerDelTodo}>
                         <i><FontAwesomeIcon icon={faTrashCan}/> </i>
                     </button>
 
-                    <button class="todo_edit_confirm_button todo_edit_set" onClick={handlerUpdateTodo}>
+                    <button className="todo_edit_confirm_button todo_edit_set" onClick={handlerUpdateTodo}>
                         <i><FontAwesomeIcon icon={faCheck} /> </i>
                     </button>
-                    <button class="todo_edit_cancel_button todo_edit_set" onClick={handlerEditCls}>
+                    <button className="todo_edit_cancel_button todo_edit_set" onClick={handlerEditCls}>
                         <i><FontAwesomeIcon icon={faXmark} /> </i>
                     </button>
                 </div>

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import React, { forwardRef, useEffect, useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faCircleExclamation } from "@fortawesome/free-solid-svg-icons";
 import TodoItem from "./TodoItem";
@@ -7,7 +7,7 @@ import TodoItem from "./TodoItem";
 const Todo = () => {
     const [todos, setTodos] = useState();
     const [infoText, setInfoText] = useState();
-    // const [todoQuantity, setTodoQuantity] = useState(0);
+    const iptRef = useRef();
 
     async function fetchData() {
         const respons = await fetch("http://localhost:3001/todos");
@@ -23,7 +23,6 @@ const Todo = () => {
     //     setTodoQuantity(qt.length - 1)
     // }
 
-    const inputFocus = useRef();
     const [inputTodo, setInputTodo] = useState('');
 
     const handleChange = (e) => {
@@ -71,11 +70,14 @@ const Todo = () => {
         }).then(fetchData())
     }
 
+
     //수정
     const handlerEditTodo = (e) => {
+        console.log(iptRef);
+        console.log(iptRef.current.value);
+        iptRef.current.focus();
         let itemCon = e.target.closest('li');
         itemCon.classList.add('editmode');
-        // inputFocus.current.focus();
     }
 
     //수정 종료
@@ -95,10 +97,11 @@ const Todo = () => {
                         id="input-destination"
                         type="text"
                         value={inputTodo}
+                        iptRef={iptRef}
                         onChange={handleChange}
                         onKeyPress={handleKeyPress}
                         placeholder="할일을 입력 후 Enter"/>
-                        <button className="btn-add" type="button"><FontAwesomeIcon icon={faPlus}/></button>
+                        <button className="btn-add" type="button"><FontAwesomeIcon icon={faPlus} /></button>
                     </div>
                 </div>
                 <p>{infoText}</p>
@@ -109,7 +112,7 @@ const Todo = () => {
                                 key={el.id} 
                                 data={el} 
                                 fetchData={fetchData}
-                                inputFocus={inputFocus}
+                                iptRef={iptRef}
                                 handlerDelTodo={handlerDelTodo} 
                                 handlerEditTodo={handlerEditTodo}
                                 handlerEditCls={handlerEditCls}
