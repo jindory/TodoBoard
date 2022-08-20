@@ -1,18 +1,8 @@
 {
   "todos": [
     {
-      "content": "🐈 산책하기",
-      "completed": true,
-      "id": 21
-    },
-    {
-      "content": "할일 수정 ㅎ-ㅎ",
-      "completed": true,
-      "id": 27
-    },
-    {
       "content": "버그 잡기ㅎ-ㅎ",
-      "completed": true,
+      "completed": false,
       "id": 28
     },
     {
@@ -21,9 +11,54 @@
       "id": 29
     },
     {
-      "content": "아옭",
+      "content": "밥 먹기",
+      "completed": false,
+      "id": 31
+    },
+    {
+      "content": "산책",
       "completed": true,
-      "id": 30
+      "id": 37
+    },
+    {
+      "content": "산책하기",
+      "completed": false,
+      "id": 38
+    },
+    {
+      "content": "산책가기",
+      "completed": false,
+      "id": 41
+    },
+    {
+      "content": "산채각기",
+      "completed": false,
+      "id": 44
+    },
+    {
+      "content": "밥 먹기",
+      "completed": false,
+      "id": 45
+    },
+    {
+      "content": "산책 가기",
+      "completed": false,
+      "id": 46
+    },
+    {
+      "content": "운동 가기",
+      "completed": false,
+      "id": 47
+    },
+    {
+      "content": "산책 갈게요",
+      "completed": false,
+      "id": 48
+    },
+    {
+      "content": "운동 갈게용",
+      "completed": false,
+      "id": 49
     }
   ]
 }

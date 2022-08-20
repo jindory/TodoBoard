@@ -1,10 +1,14 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare, faTrashCan, faCheck, faXmark } from "@fortawesome/free-solid-svg-icons";
 import styled from 'styled-components';
 
-const TodoItem = ({data, fetchData, handlerDelTodo, iptRef, handlerEditTodo, handlerEditCls}) => {
+const TodoItem = ({todos, data, fetchData, handlerDelTodo, iptRef, handlerEditTodo, handlerEditCls}) => {
     const [defTodoText, setDefTodoText] = useState(data.content);
+    const [keywordIcon, setKeywordIcon] = useState('');
+    const [dataContent, setDataContent] = useState('');
+
+
     const ChangeTodo = (e) => {
         setDefTodoText(e.target.value)
     }
@@ -20,6 +24,7 @@ const TodoItem = ({data, fetchData, handlerDelTodo, iptRef, handlerEditTodo, han
             body:JSON.stringify({content : defTodoText})
         })
         item.classList.remove('editmode');
+        fetchData();
     }
 
 
@@ -37,18 +42,32 @@ const TodoItem = ({data, fetchData, handlerDelTodo, iptRef, handlerEditTodo, han
             body:JSON.stringify({completed: completed})
         }).then(fetchData())
         .catch((error)=>console.log(error));
-
-
     }
-    
+
+    async function iconSet() {
+        if(defTodoText.includes('운동')===true){
+            setKeywordIcon('🏋️‍♀️')
+        } else if(defTodoText.includes('먹기')===true){
+            setKeywordIcon('🍚')
+        } else if(defTodoText.includes('산책')===true){
+            setKeywordIcon('🐈')
+        } 
+        setDataContent(keywordIcon.concat(defTodoText))
+    }
+
+    useEffect(()=>{
+        iconSet()
+        console.log(keywordIcon, defTodoText);
+    },[dataContent])
+
 
     return(
         <li data-id={data.id}>
             <StyledLabel>
                 <StyledInput className={data.completed===true ? 'checked' : null} type="checkbox" onClick={toggleTodos}/>
             </StyledLabel>
-            <input className="ipt-normal" ref={iptRef} type="text" value={defTodoText} onChange={ChangeTodo}/>
-            <label className="ipt-label">{defTodoText}</label>
+            <input className="ipt-normal" ref={iptRef} type="text" value={dataContent} onChange={ChangeTodo}/>
+            <label className="ipt-label">{dataContent}</label>
             <div className="buttonGroup">
                 <div className={`item_buttons content_buttons`}>
                     <button className="todo_edit_button def-mode" onClick={handlerEditTodo}>

@@ -16,6 +16,7 @@ const Todo = () => {
         const result = await respons.json();
         setTodos(result);
     }
+
     useEffect(() => {
         fetchData();
     },[]); 
@@ -105,6 +106,7 @@ const Todo = () => {
                             return(<TodoItem 
                                 key={el.id} 
                                 data={el} 
+                                todos={todos}
                                 fetchData={fetchData}
                                 iptRef={iptref}
                                 handlerDelTodo={handlerDelTodo} 
