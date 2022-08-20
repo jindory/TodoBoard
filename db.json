@@ -2,18 +2,28 @@
   "todos": [
     {
       "content": "🐈 산책하기",
-      "completed": false,
+      "completed": true,
       "id": 21
     },
     {
       "content": "할일 수정 ㅎ-ㅎ",
-      "completed": false,
+      "completed": true,
       "id": 27
     },
     {
       "content": "버그 잡기ㅎ-ㅎ",
-      "completed": false,
+      "completed": true,
       "id": 28
+    },
+    {
+      "content": "테스트",
+      "completed": true,
+      "id": 29
+    },
+    {
+      "content": "아옭",
+      "completed": true,
+      "id": 30
     }
   ]
 }

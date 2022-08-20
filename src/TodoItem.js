@@ -22,6 +22,7 @@ const TodoItem = ({data, fetchData, handlerDelTodo, iptRef, handlerEditTodo, han
         item.classList.remove('editmode');
     }
 
+
     // 체크 변동
     const toggleTodos = (e) => {
         let item = e.target.closest('li');
@@ -36,6 +37,8 @@ const TodoItem = ({data, fetchData, handlerDelTodo, iptRef, handlerEditTodo, han
             body:JSON.stringify({completed: completed})
         }).then(fetchData())
         .catch((error)=>console.log(error));
+
+
     }
     
 
@@ -44,7 +47,7 @@ const TodoItem = ({data, fetchData, handlerDelTodo, iptRef, handlerEditTodo, han
             <StyledLabel>
                 <StyledInput className={data.completed===true ? 'checked' : null} type="checkbox" onClick={toggleTodos}/>
             </StyledLabel>
-            <input className="ipt-normal" ref={iptRef} type="text" id={data.id} value={defTodoText} onChange={ChangeTodo}/>
+            <input className="ipt-normal" ref={iptRef} type="text" value={defTodoText} onChange={ChangeTodo}/>
             <label className="ipt-label">{defTodoText}</label>
             <div className="buttonGroup">
                 <div className={`item_buttons content_buttons`}>
