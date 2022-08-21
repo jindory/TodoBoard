@@ -11,54 +11,19 @@
       "id": 29
     },
     {
-      "content": "밥 먹기",
-      "completed": false,
+      "content": "운동 다녀오기",
+      "completed": true,
       "id": 31
     },
     {
-      "content": "산책",
-      "completed": true,
-      "id": 37
+      "content": "ㅎ-ㅎ 산책가기",
+      "completed": false,
+      "id": 32
     },
     {
-      "content": "산책하기",
+      "content": "공부하기",
       "completed": false,
-      "id": 38
-    },
-    {
-      "content": "산책가기",
-      "completed": false,
-      "id": 41
-    },
-    {
-      "content": "산채각기",
-      "completed": false,
-      "id": 44
-    },
-    {
-      "content": "밥 먹기",
-      "completed": false,
-      "id": 45
-    },
-    {
-      "content": "산책 가기",
-      "completed": false,
-      "id": 46
-    },
-    {
-      "content": "운동 가기",
-      "completed": false,
-      "id": 47
-    },
-    {
-      "content": "산책 갈게요",
-      "completed": false,
-      "id": 48
-    },
-    {
-      "content": "운동 갈게용",
-      "completed": false,
-      "id": 49
+      "id": 33
     }
   ]
 }

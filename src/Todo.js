@@ -9,7 +9,7 @@ const Todo = () => {
     const [infoText, setInfoText] = useState();
     const [inputTodo, setInputTodo] = useState('');
     const [todoQ, setTodoQ] = useState(0);
-    const iptref = useRef();
+    const iptRef = useRef([]);
 
     async function fetchData() {
         const respons = await fetch("http://localhost:3001/todos");
@@ -70,10 +70,10 @@ const Todo = () => {
     }
 
     //수정
-    const handlerEditTodo = (e) => {
-        iptref.current.focus();
+    const handlerEditTodo = (idx) => (e) => {
         let itemCon = e.target.closest('li');
         itemCon.classList.add('editmode');
+        iptRef.current[idx].focus();
     }
 
     //수정 종료
@@ -102,13 +102,14 @@ const Todo = () => {
                 <p>{infoText}</p>
                 <div className="t-body">
                     <ul className="t-lst">
-                        {todos && todos.map((el)=> {
+                        {todos && todos.map((el, idx)=> {
                             return(<TodoItem 
                                 key={el.id} 
                                 data={el} 
+                                idx={idx}
                                 todos={todos}
                                 fetchData={fetchData}
-                                iptRef={iptref}
+                                iptRef={iptRef}
                                 handlerDelTodo={handlerDelTodo} 
                                 handlerEditTodo={handlerEditTodo}
                                 handlerEditCls={handlerEditCls}

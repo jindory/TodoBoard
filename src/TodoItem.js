@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare, faTrashCan, faCheck, faXmark } from "@fortawesome/free-solid-svg-icons";
 import styled from 'styled-components';
 
-const TodoItem = ({todos, data, fetchData, handlerDelTodo, iptRef, handlerEditTodo, handlerEditCls}) => {
+const TodoItem = ({idx, data, fetchData, handlerDelTodo, iptRef, handlerEditTodo, handlerEditCls}) => {
     const [defTodoText, setDefTodoText] = useState(data.content);
     const [keywordIcon, setKeywordIcon] = useState('');
     const [dataContent, setDataContent] = useState('');
@@ -66,7 +66,7 @@ const TodoItem = ({todos, data, fetchData, handlerDelTodo, iptRef, handlerEditTo
             <StyledLabel>
                 <StyledInput className={data.completed===true ? 'checked' : null} type="checkbox" onClick={toggleTodos}/>
             </StyledLabel>
-            <input className="ipt-normal" ref={iptRef} type="text" value={dataContent} onChange={ChangeTodo}/>
+            <input className="ipt-normal" ref={(inputEl) => (iptRef.current[idx] = inputEl)} type="text" value={dataContent} onChange={ChangeTodo}/>
             <label className="ipt-label">{dataContent}</label>
             <div className="buttonGroup">
                 <div className={`item_buttons content_buttons`}>
