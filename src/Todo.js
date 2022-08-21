@@ -73,7 +73,9 @@ const Todo = () => {
     const handlerEditTodo = (idx) => (e) => {
         let itemCon = e.target.closest('li');
         itemCon.classList.add('editmode');
+        console.log(iptRef.current[0])
         iptRef.current[idx].focus();
+        
     }
 
     //수정 종료
@@ -104,9 +106,8 @@ const Todo = () => {
                     <ul className="t-lst">
                         {todos && todos.map((el, idx)=> {
                             return(<TodoItem 
-                                key={el.id} 
+                                key={idx} 
                                 data={el} 
-                                idx={idx}
                                 todos={todos}
                                 fetchData={fetchData}
                                 iptRef={iptRef}

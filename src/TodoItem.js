@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, forwardRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare, faTrashCan, faCheck, faXmark } from "@fortawesome/free-solid-svg-icons";
 import styled from 'styled-components';
@@ -57,7 +57,6 @@ const TodoItem = ({idx, data, fetchData, handlerDelTodo, iptRef, handlerEditTodo
 
     useEffect(()=>{
         iconSet()
-        console.log(keywordIcon, defTodoText);
     },[dataContent])
 
 
@@ -70,7 +69,7 @@ const TodoItem = ({idx, data, fetchData, handlerDelTodo, iptRef, handlerEditTodo
             <label className="ipt-label">{dataContent}</label>
             <div className="buttonGroup">
                 <div className={`item_buttons content_buttons`}>
-                    <button className="todo_edit_button def-mode" onClick={handlerEditTodo}>
+                    <button className="todo_edit_button def-mode" onClick={handlerEditTodo(()=>(idx))}>
                         <i><FontAwesomeIcon icon={faPenToSquare}/> </i>
                     </button>
                     <button className="todo_remove_button def-mode" onClick={handlerDelTodo}>
