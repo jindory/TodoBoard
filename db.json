@@ -2,7 +2,7 @@
   "todos": [
     {
       "content": "버그 잡기ㅎ-ㅎ",
-      "completed": false,
+      "completed": true,
       "id": 28
     },
     {
@@ -17,12 +17,12 @@
     },
     {
       "content": "ㅎ-ㅎ 산책가기",
-      "completed": false,
+      "completed": true,
       "id": 32
     },
     {
       "content": "공부하기",
-      "completed": false,
+      "completed": true,
       "id": 33
     },
     {

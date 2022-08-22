@@ -61,15 +61,15 @@ const TodoItem = ({idx, data, fetchData, handlerDelTodo, iptRef, handlerEditTodo
 
 
     return(
-        <li data-id={data.id}>
+        <li data-id={data.id} >
             <StyledLabel>
                 <StyledInput className={data.completed===true ? 'checked' : null} type="checkbox" onClick={toggleTodos}/>
             </StyledLabel>
-            <input className="ipt-normal" ref={(inputEl) => (iptRef.current[idx] = inputEl)} type="text" value={dataContent} onChange={ChangeTodo}/>
+            <input className="ipt-normal" ref={(inputEl) => {iptRef.current[idx] = inputEl}} type="text" value={dataContent} onChange={ChangeTodo}/>
             <label className="ipt-label">{dataContent}</label>
             <div className="buttonGroup">
                 <div className={`item_buttons content_buttons`}>
-                    <button className="todo_edit_button def-mode" onClick={handlerEditTodo(()=>(idx))}>
+                    <button className="todo_edit_button def-mode" onClick={handlerEditTodo(idx)}>
                         <i><FontAwesomeIcon icon={faPenToSquare}/> </i>
                     </button>
                     <button className="todo_remove_button def-mode" onClick={handlerDelTodo}>

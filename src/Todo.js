@@ -21,7 +21,7 @@ const Todo = () => {
         fetchData();
     },[]); 
 
-    useEffect(()=>{
+    useEffect(() => {
         const test = todos.filter((el)=>{return el.completed === false});
         setTodoQ(test.length)
     })
@@ -73,9 +73,8 @@ const Todo = () => {
     const handlerEditTodo = (idx) => (e) => {
         let itemCon = e.target.closest('li');
         itemCon.classList.add('editmode');
-        console.log(iptRef.current[0])
-        iptRef.current[idx].focus();
-        
+        console.log(iptRef.current)
+        iptRef.current[idx] && iptRef.current[idx].focus();
     }
 
     //수정 종료
@@ -106,7 +105,8 @@ const Todo = () => {
                     <ul className="t-lst">
                         {todos && todos.map((el, idx)=> {
                             return(<TodoItem 
-                                key={idx} 
+                                idx={idx}
+                                key={el.id} 
                                 data={el} 
                                 todos={todos}
                                 fetchData={fetchData}
